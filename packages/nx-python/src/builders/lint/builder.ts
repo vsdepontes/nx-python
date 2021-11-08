@@ -9,7 +9,7 @@ export function runBuilder(options: LintBuilderSchema, context: BuilderContext):
     map((project) => {
       const root = project.root
       // Route of python files
-      const sources = `${root}/src/*.py`
+      const sources = options.sourcePath || `${root}/src/*.py`
 
       // Executing linting using the flake8 module
       return runPythonCommand(context, 'lint', [sources], getCliOptions(options))
