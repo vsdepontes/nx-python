@@ -35,12 +35,15 @@ export function runPythonCommand(
 }
 
 export function getCliOptions(options: ServeBuilderSchema): ServeBuilderSchema {
-  const _options: ServeBuilderSchema = {...options};
+  const _options: ServeBuilderSchema = {};
   if(options.cmd) {
     _options.cmd = options.cmd;
   }
   if(options.cwd) {
     _options.cwd = options.cwd;
+  }
+  if(options.templateType) {
+    _options.templateType = options.templateType;
   }
   return _options;
 }

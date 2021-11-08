@@ -9,9 +9,9 @@ export function runBuilder(options: TestBuilderSchema, context: BuilderContext):
     map((project) => {
 
       const root = project.root
-      const sources = options.testPath || `${root}/src/*test*.py`
+      const testCmd = options.testCmd || `unittest discover -s ./ -p ${root}/src/*test*.py`
 
-      return runPythonCommand(context, 'test', [sources], getCliOptions(options))
+      return runPythonCommand(context, 'test', [testCmd], getCliOptions(options))
     }),
   )
 }
